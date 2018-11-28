@@ -1,0 +1,20 @@
+这里规定了存储到数据库里所有的数据格式
+这里是把所有本地存储的数据格式固定住
+从任何地方导入的数据，都需要经过这里变成标准格式，进入到数据库内
+
+
+BaseData 整个数据的；类型的基类
+TickData 
+BarData
+TradeData
+OrderData
+PositionData
+AccountData
+ErrorData
+ContractData
+LogData
+HistoryData
+SubscribeData
+OrderReq
+CancelOrderReq
+HistoryReq
