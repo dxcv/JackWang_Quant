@@ -116,4 +116,5 @@ dmypy.json
 
 .ide/
 test.py
-
+*.xls
+*.csv

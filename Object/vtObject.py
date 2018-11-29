@@ -63,8 +63,8 @@ class VtTradeData(VtBaseData):
 
         # 代码编号相关
         self.symbol = EMPTY_STRING  # 合约代码
-        self.exchange = EMPTY_STRING  # 交易所代码
         self.vtSymbol = EMPTY_STRING  # 合约在vt系统中的唯一代码，通常是 合约代码.交易所代码
+        self.exchange = EMPTY_STRING  # 交易所代码
 
         self.tradeID = EMPTY_STRING  # 成交编号 gateway内部自己生成的编号
         self.vtTradeID = EMPTY_STRING  # 成交在vt系统中的唯一编号，通常是 Gateway名.成交编号
@@ -84,6 +84,7 @@ class VtTradeData(VtBaseData):
         self.closevolume = EMPTY_FLOAT  # 平仓数量
         self.closeCommission = EMPTY_FLOAT  # 平仓手续费
         self.profitloss = EMPTY_FLOAT  # 平仓盈亏
+        self.netprofitloss = EMPTY_FLOAT  # 净盈亏
 
 
     
