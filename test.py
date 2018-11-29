@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from config.constant import *
+
 import pandas as pd
 import os
 import talib
@@ -10,18 +10,16 @@ from single import frame_single
 
 
 def main():
-    """
-    file_path = os.path.join(os.getcwd(), 'adaeth.csv')
-    bardata = pd.read_excel(file_path)
-    """
+    # 数据部分，需要重新接入
     file_path = os.path.join(os.getcwd(),  'adaeth.xls')
-
-
     bardata = pd.read_excel(file_path)
+    # 数据的简单处理
     sma_short = talib.MA(bardata['收'], 5)
     sma_long = talib.MA(bardata['收'], 20)
-    backtest = frame_single('adaeth')
 
+    # 引入轻量级回测框架
+    backtest = frame_single('adaeth')
+    #==============================这里是策略
     for i1 in range(0, len(bardata)):
         if i1 > 0 and divmod(i1, 50)[1] == 0:
             print(i1)
@@ -102,24 +100,12 @@ def main():
         position = backtest.position
         if len(position) > 2:
             print(position)
-
+    #==============================策略结束
 
     backtest.record_process()
     backtest.backtest_record_save('test', 'sma-20-5')
-    print('Done!!')
 
 
-
-
-
-
-
-
-
-    print(type(EMPTY_UNICODE))
-    print(type(EMPTY_STRING))
-    print(DIRECTION_LONG)
-    print('Hello world!!!')
 
 
 if __name__ == '__main__':
