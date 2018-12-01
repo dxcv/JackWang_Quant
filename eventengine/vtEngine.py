@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-
+from __future__ import division
 
 import os
 import shelve
@@ -407,15 +407,15 @@ class DataEngine(object):
         self.eventEngine = eventEngine
         
         # 保存数据的字典和列表
-        self.tickDict = {} # tick 数据
-        self.contractDict = {} # 合约数据
-        self.orderDict = {} # 订单数据
+        self.tickDict = {}
+        self.contractDict = {}
+        self.orderDict = {}
         self.workingOrderDict = {}  # 可撤销委托
-        self.tradeDict = {} # 成交数据
-        self.accountDict = {} # 账户数据
-        self.positionDict = {} # 持仓数据
-        self.logList = [] # 日志列表
-        self.errorList = [] # 错误列表
+        self.tradeDict = {}
+        self.accountDict = {}
+        self.positionDict = {}
+        self.logList = []
+        self.errorList = []
         
         # 持仓细节相关
         self.detailDict = {}                                # vtSymbol:PositionDetail
@@ -429,8 +429,7 @@ class DataEngine(object):
     
     #----------------------------------------------------------------------
     def registerEvent(self):
-        """注册事件监听一共有8个，分别是市场数据，市场合约，市场订单，市场成交，市场持仓，市场账户，日志，错误"""
-
+        """注册事件监听"""
         self.eventEngine.register(EVENT_TICK, self.processTickEvent)
         self.eventEngine.register(EVENT_CONTRACT, self.processContractEvent)
         self.eventEngine.register(EVENT_ORDER, self.processOrderEvent)

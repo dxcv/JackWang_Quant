@@ -55,7 +55,7 @@ class BacktestingEngine(object):
         # 本地停止单字典, key为stopOrderID，value为stopOrder对象
         self.stopOrderDict = {}             # 停止单撤销后不会从本字典中删除
         self.workingStopOrderDict = {}      # 停止单撤销后会从本字典中删除
-        
+
         self.engineType = ENGINETYPE_BACKTESTING    # 引擎类型为回测
         
         self.strategy = None        # 回测策略
