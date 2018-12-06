@@ -114,8 +114,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.ide/
+.idea/
 test.py
 *.xls
 *.csv
 *.xlsx
+*.idea
