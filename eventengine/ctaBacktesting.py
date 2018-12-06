@@ -217,7 +217,7 @@ class BacktestingEngine(object):
                                                         self.strategyStartDate)
         else:
             flt = {'datetime':{'$gte':self.dataStartDate,
-                               '$lt':self.strategyStartDate}}        
+                               '$lte':self.strategyStartDate}}
             initCursor = collection.find(flt).sort('datetime')
         
         # 将数据从查询指针中读取出，并生成列表

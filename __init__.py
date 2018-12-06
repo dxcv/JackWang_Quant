@@ -5,6 +5,6 @@
 __all__=[
     'config',
     'data',
-    'event',
     'rpc',
+    'vnpy_change'
          ]
