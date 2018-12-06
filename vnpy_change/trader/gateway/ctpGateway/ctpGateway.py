@@ -13,10 +13,10 @@ import json
 from copy import copy
 from datetime import datetime, timedelta
 
-from vnpy.api.ctp import MdApi, TdApi, defineDict
-from vnpy.trader.vtGateway import *
-from vnpy.trader.vtFunction import getJsonPath, getTempPath
-from vnpy.trader.vtConstant import GATEWAYTYPE_FUTURES
+from vnpy_change.api.ctp.vnctpmd import MdApi, TdApi, defineDict
+from vnpy_change.trader.vtGateway import *
+from vnpy_change.trader.vtFunction import getJsonPath, getTempPath
+from vnpy_change.trader.constant_common import *
 from .language import text
 
 

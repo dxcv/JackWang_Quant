@@ -1,12 +1,18 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import time
 
-from vnpy.event import *
+from vnpy_change.event import *
+from vnpy_change.trader.vtEvent import *
 
-from vnpy.trader.vtEvent import *
-from vnpy.trader.vtConstant import *
-from vnpy.trader.vtObject import *
+"""
+通用事件儿
+在主引擎中添加gateway的实例之后
+实例的推送数据的接口
+推送 tick order trade account position error log contract history
+gateway 另外需要实现的connect, close qryAccount qryHistory qryPosition sendorder subscribe
+qryhistory很少有gateway开放这个接口，如需查询历史数据，可查询本地数据库 或者网站 直接接口的很少
+"""
 
 
 ########################################################################

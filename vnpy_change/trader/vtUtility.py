@@ -1,10 +1,11 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 
 import numpy as np
 import talib
 
-from vnpy.trader.vtObject import VtBarData
+from vnpy_change.trader.vtObject import VtBarData
 
 
 ########################################################################

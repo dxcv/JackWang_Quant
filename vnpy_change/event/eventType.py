@@ -1,4 +1,5 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 '''
 本文件仅用于存放对于事件类型常量的定义。
@@ -10,7 +11,6 @@
 
 建议将所有的常量定义放在该文件中，便于检查是否存在重复的现象。
 '''
-from __future__ import print_function
 
 
 EVENT_TIMER = 'eTimer'                  # 计时器事件，每隔1秒发送一次

@@ -1,12 +1,12 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from logging import INFO
 
 import time
 from datetime import datetime
 
-from vnpy.trader.language import constant
-from vnpy.trader.vtConstant import (EMPTY_FLOAT, EMPTY_INT, EMPTY_STRING, EMPTY_UNICODE)
+from vnpy_change.trader.constant_common import *
 
 
 ########################################################################

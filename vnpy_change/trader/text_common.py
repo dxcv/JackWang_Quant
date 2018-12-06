@@ -1,4 +1,5 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 SAVE_DATA = u'保存数据'
 RESIZE_COLUMNS = u'调整列宽'

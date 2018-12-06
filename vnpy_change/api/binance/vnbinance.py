@@ -1,6 +1,7 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-from __future__ import print_function
+
 import json
 import requests
 import hmac
@@ -15,8 +16,6 @@ from time import time, sleep
 from urllib import urlencode
 
 from websocket import create_connection
-
-
 
 REST_ENDPOINT = 'https://www.binance.com'
 DATASTREAM_ENDPOINT = 'wss://stream.binance.com:9443/stream?streams='

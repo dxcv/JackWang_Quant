@@ -1,10 +1,10 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 '''
-本文件基于vnpy.event.eventType，并添加更多字段
+将所有主引擎的事件儿类型添加至此
+主引擎通用的所有事件儿，在此，各个APP模块还会有其他的事件儿，在模块中添加
 '''
-
-from vnpy.event.eventType import *
 
 # 系统相关
 EVENT_TIMER = 'eTimer'                  # 计时器事件，每隔1秒发送一次

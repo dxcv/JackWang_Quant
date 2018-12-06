@@ -1,17 +1,18 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # 系统模块
-from __future__ import print_function
+
 from queue import Queue, Empty
 from threading import Thread
 from time import sleep
 from collections import defaultdict
+from vnpy_change.trader.vtEvent import *
+
 
 # 第三方模块
 from qtpy.QtCore import QTimer
 
-# 自己开发的模块
-from .eventType import *
 
 
 ########################################################################
@@ -333,7 +334,7 @@ class Event:
 
 
 #----------------------------------------------------------------------
-def test():
+def mytest():
     """测试函数"""
     import sys
     from datetime import datetime
@@ -354,4 +355,4 @@ def test():
     
 # 直接运行脚本可以进行测试
 if __name__ == '__main__':
-    test()
+    mytest()
