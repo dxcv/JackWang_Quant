@@ -1,4 +1,5 @@
-# encoding: UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from .ctaEngine import CtaEngine
 from .uiCtaWidget import CtaEngineManager

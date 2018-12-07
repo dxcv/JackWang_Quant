@@ -37,7 +37,20 @@ class VtGateway(object):
         event2 = Event(type_=EVENT_TICK+tick.vtSymbol)
         event2.dict_['data'] = tick
         self.eventEngine.put(event2)
-    
+
+    # ----------------------------------------------------------------------
+    def onOrder(self, order):
+        """订单变化推送"""
+        # 通用事件
+        event1 = Event(type_=EVENT_ORDER)
+        event1.dict_['data'] = order
+        self.eventEngine.put(event1)
+
+        # 特定订单编号的事件
+        event2 = Event(type_=EVENT_ORDER + order.vtOrderID)
+        event2.dict_['data'] = order
+        self.eventEngine.put(event2)
+
     #----------------------------------------------------------------------
     def onTrade(self, trade):
         """成交信息推送"""
@@ -50,20 +63,7 @@ class VtGateway(object):
         event2 = Event(type_=EVENT_TRADE+trade.vtSymbol)
         event2.dict_['data'] = trade
         self.eventEngine.put(event2)        
-    
-    #----------------------------------------------------------------------
-    def onOrder(self, order):
-        """订单变化推送"""
-        # 通用事件
-        event1 = Event(type_=EVENT_ORDER)
-        event1.dict_['data'] = order
-        self.eventEngine.put(event1)
-        
-        # 特定订单编号的事件
-        event2 = Event(type_=EVENT_ORDER+order.vtOrderID)
-        event2.dict_['data'] = order
-        self.eventEngine.put(event2)
-    
+
     #----------------------------------------------------------------------
     def onPosition(self, position):
         """持仓信息推送"""

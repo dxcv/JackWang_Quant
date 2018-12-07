@@ -35,7 +35,11 @@ STATUS_UNKNOWN = u'未知'
 # 合约类型常量，资产大类
 
 PRODUCT_FUTURES = u'期货'
+PRODUCT_UNKNOWN = u'未知'
 PRODUCT_DIGITAL_CURRENCY = u'数字货币'
+PRODUCT_OPTION = u'期权'
+
+
 
 # 价格类型常量，这个是下单常量，下什么单，一般都是下限价单
 PRICETYPE_LIMITPRICE = u'限价'
@@ -45,13 +49,18 @@ PRICETYPE_FOK = u'FOK'
 
 # 交易所类型，交易所名称，股票，期货，期权，数字货币等
 
+EXCHANGE_SSE = 'SSE'       # 上交所
+EXCHANGE_SZSE = 'SZSE'     # 深交所
 EXCHANGE_CFFEX = 'CFFEX'   # 中金所
 EXCHANGE_SHFE = 'SHFE'     # 上期所
 EXCHANGE_CZCE = 'CZCE'     # 郑商所
 EXCHANGE_DCE = 'DCE'       # 大商所
+EXCHANGE_SGE = 'SGE'       # 上金所
 EXCHANGE_INE = 'INE'       # 国际能源交易中心
 EXCHANGE_UNKNOWN = 'UNKNOWN'# 未知交易所
 EXCHANGE_NONE = ''          # 空交易所
+EXCHANGE_HKEX = 'HKEX'      # 港交所
+EXCHANGE_HKFE = 'HKFE'      # 香港期货交易所
 
 EXCHANGE_OKCOIN = 'OKCOIN'       # OKCOIN比特币交易所
 EXCHANGE_HUOBI = 'HUOBI'         # 火币比特币交易所
@@ -78,6 +87,11 @@ CURRENCY_BTC = 'BTC'            # 比特币
 
 # 数据库，这里说的事日志的数据库了
 LOG_DB_NAME = 'VnTrader_Log_Db'
+
+# 期权类型
+OPTION_CALL = u'看涨期权'
+OPTION_PUT = u'看跌期权'
+
 
 # 接口类型
 GATEWAYTYPE_EQUITY = 'equity'                   # 股票、ETF、债券

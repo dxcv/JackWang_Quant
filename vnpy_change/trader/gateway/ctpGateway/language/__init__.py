@@ -9,7 +9,7 @@ import traceback
 from .chinese import text
 
 # 获取全局配置
-from vnpy.trader.vtGlobal import globalSetting
+from vnpy_change.trader.vtGlobal import globalSetting
 
 # 打开配置文件，读取语言配置
 if globalSetting['language'] == 'english':

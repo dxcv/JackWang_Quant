@@ -6,5 +6,5 @@ __all__=[
     'config',
     'data',
     'rpc',
-    'vnpy_change'
+    'vnpy_change',
          ]

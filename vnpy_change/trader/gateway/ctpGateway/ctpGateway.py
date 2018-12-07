@@ -1,5 +1,5 @@
-# encoding: UTF-8
-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
 vn.ctp的gateway接入
 
@@ -13,7 +13,10 @@ import json
 from copy import copy
 from datetime import datetime, timedelta
 
-from vnpy_change.api.ctp.vnctpmd import MdApi, TdApi, defineDict
+from vnpy_change.api.ctp.vnctpmd import MdApi
+from vnpy_change.api.ctp.vnctptd import TdApi
+from vnpy_change.api.ctp.ctp_data_type import defineDict
+from vnpy_change.trader.vtObject import *
 from vnpy_change.trader.vtGateway import *
 from vnpy_change.trader.vtFunction import getJsonPath, getTempPath
 from vnpy_change.trader.constant_common import *
@@ -47,8 +50,6 @@ exchangeMap[EXCHANGE_CFFEX] = 'CFFEX'
 exchangeMap[EXCHANGE_SHFE] = 'SHFE'
 exchangeMap[EXCHANGE_CZCE] = 'CZCE'
 exchangeMap[EXCHANGE_DCE] = 'DCE'
-exchangeMap[EXCHANGE_SSE] = 'SSE'
-exchangeMap[EXCHANGE_SZSE] = 'SZSE'
 exchangeMap[EXCHANGE_INE] = 'INE'
 exchangeMap[EXCHANGE_UNKNOWN] = ''
 exchangeMapReverse = {v:k for k,v in exchangeMap.items()}
@@ -63,11 +64,8 @@ posiDirectionMapReverse = {v:k for k,v in posiDirectionMap.items()}
 # 产品类型映射
 productClassMap = {}
 productClassMap[PRODUCT_FUTURES] = defineDict["THOST_FTDC_PC_Futures"]
-productClassMap[PRODUCT_OPTION] = defineDict["THOST_FTDC_PC_Options"]
-productClassMap[PRODUCT_COMBINATION] = defineDict["THOST_FTDC_PC_Combination"]
 productClassMapReverse = {v:k for k,v in productClassMap.items()}
-productClassMapReverse[defineDict["THOST_FTDC_PC_ETFOption"]] = PRODUCT_OPTION
-productClassMapReverse[defineDict["THOST_FTDC_PC_Stock"]] = PRODUCT_EQUITY
+
 
 # 委托状态映射
 statusMap = {}
@@ -852,7 +850,8 @@ class CtpTdApi(TdApi):
         contract.symbol = data['InstrumentID']
         contract.exchange = exchangeMapReverse[data['ExchangeID']]
         contract.vtSymbol = contract.symbol #'.'.join([contract.symbol, contract.exchange])
-        contract.name = data['InstrumentName'].decode('GBK')
+        # contract.name = data['InstrumentName'].decode('GBK')
+        contract.name = data['InstrumentName']
 
         # 合约数值
         contract.size = data['VolumeMultiple']

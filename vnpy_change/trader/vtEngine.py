@@ -11,7 +11,7 @@ from pymongo.errors import ConnectionFailure
 
 from vnpy_change.trader.vtGlobal import globalSetting
 from vnpy_change.trader.vtGateway import *
-from vnpy_change.trader.language import text
+from vnpy_change.trader.text_common import *
 from vnpy_change.trader.vtFunction import getTempPath
 from vnpy_change.trader.constant_common import *
 from vnpy_change.trader.vtObject import *
@@ -100,7 +100,7 @@ class MainEngine(object):
         if gatewayName in self.gatewayDict:
             return self.gatewayDict[gatewayName]
         else:
-            self.writeLog(text.GATEWAY_NOT_EXIST.format(gateway=gatewayName))
+            self.writeLog(GATEWAY_NOT_EXIST.format(gateway=gatewayName))
             return None
         
     #----------------------------------------------------------------------
@@ -198,14 +198,14 @@ class MainEngine(object):
                 # 调用server_info查询服务器状态，防止服务器异常并未连接成功
                 self.dbClient.server_info()
 
-                self.writeLog(text.DATABASE_CONNECTING_COMPLETED)
+                self.writeLog(DATABASE_CONNECTING_COMPLETED)
                 
                 # 如果启动日志记录，则注册日志事件监听函数
                 if globalSetting['mongoLogging']:
                     self.eventEngine.register(EVENT_LOG, self.dbLogging)
                     
             except ConnectionFailure:
-                self.writeLog(text.DATABASE_CONNECTING_FAILED)
+                self.writeLog(DATABASE_CONNECTING_FAILED)
     
     #----------------------------------------------------------------------
     def dbInsert(self, dbName, collectionName, d):
@@ -215,7 +215,7 @@ class MainEngine(object):
             collection = db[collectionName]
             collection.insert_one(d)
         else:
-            self.writeLog(text.DATA_INSERT_FAILED)
+            self.writeLog(DATA_INSERT_FAILED)
     
     #----------------------------------------------------------------------
     def dbQuery(self, dbName, collectionName, d, sortKey='', sortDirection=ASCENDING):
@@ -234,7 +234,7 @@ class MainEngine(object):
             else:
                 return []
         else:
-            self.writeLog(text.DATA_QUERY_FAILED)   
+            self.writeLog(DATA_QUERY_FAILED)
             return []
         
     #----------------------------------------------------------------------
@@ -245,7 +245,7 @@ class MainEngine(object):
             collection = db[collectionName]
             collection.replace_one(flt, d, upsert)
         else:
-            self.writeLog(text.DATA_UPDATE_FAILED)   
+            self.writeLog(DATA_UPDATE_FAILED)
     
     #----------------------------------------------------------------------
     def dbDelete(self, dbName, collectionName, flt):
@@ -255,7 +255,7 @@ class MainEngine(object):
             collection = db[collectionName]
             collection.delete_one(flt)
         else:
-            self.writeLog(text.DATA_DELETE_FAILED)          
+            self.writeLog(DATA_DELETE_FAILED)
             
     #----------------------------------------------------------------------
     def dbLogging(self, event):
@@ -447,7 +447,7 @@ class DataEngine(object):
         """处理合约事件"""
         contract = event.dict_['data']
         self.contractDict[contract.vtSymbol] = contract
-        self.contractDict[contract.symbol] = contract       # 使用常规代码（不包括交易所）可能导致重复
+        # self.contractDict[contract.symbol] = contract       # 使用常规代码（不包括交易所）可能导致重复
     
     #----------------------------------------------------------------------
     def processOrderEvent(self, event):

@@ -1,11 +1,11 @@
 # encoding: UTF-8
 
 from __future__ import absolute_import
-from vnpy.trader import vtConstant
-from .ctpGateway import CtpGateway
+from vnpy_change.trader import constant_common
+from vnpy_change.trader.gateway.ctpGateway.ctpGateway import CtpGateway
 
 gatewayClass = CtpGateway
 gatewayName = 'CTP'
 gatewayDisplayName = 'CTP'
-gatewayType = vtConstant.GATEWAYTYPE_FUTURES
+gatewayType = constant_common.GATEWAYTYPE_FUTURES
 gatewayQryEnabled = True
